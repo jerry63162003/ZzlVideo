@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74350D84244D7D680071867B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350D83244D7D680071867B /* AppDelegate.swift */; };
+		74350D86244D7D680071867B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350D85244D7D680071867B /* SceneDelegate.swift */; };
+		74350D88244D7D680071867B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350D87244D7D680071867B /* ViewController.swift */; };
+		74350D8B244D7D680071867B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74350D89244D7D680071867B /* Main.storyboard */; };
+		74350D8D244D7D680071867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74350D8C244D7D680071867B /* Assets.xcassets */; };
+		74350D90244D7D690071867B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74350D8E244D7D690071867B /* LaunchScreen.storyboard */; };
+		74350D9B244D7D690071867B /* ZzlVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350D9A244D7D690071867B /* ZzlVideoTests.swift */; };
+		74350DA6244D7D690071867B /* ZzlVideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DA5244D7D690071867B /* ZzlVideoUITests.swift */; };
+		C1042C6F0099556CF6C21468 /* Pods_ZzlVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDED7B9FF9AC866075FE921 /* Pods_ZzlVideo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74350D97244D7D690071867B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74350D78244D7D680071867B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74350D7F244D7D680071867B;
+			remoteInfo = ZzlVideo;
+		};
+		74350DA2244D7D690071867B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74350D78244D7D680071867B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74350D7F244D7D680071867B;
+			remoteInfo = ZzlVideo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		44A3EF16C46FCF578784569D /* Pods-ZzlVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZzlVideo.debug.xcconfig"; path = "Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo.debug.xcconfig"; sourceTree = "<group>"; };
+		74350D80244D7D680071867B /* ZzlVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZzlVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74350D83244D7D680071867B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74350D85244D7D680071867B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		74350D87244D7D680071867B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74350D8A244D7D680071867B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74350D8C244D7D680071867B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74350D8F244D7D690071867B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		74350D91244D7D690071867B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74350D96244D7D690071867B /* ZzlVideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZzlVideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74350D9A244D7D690071867B /* ZzlVideoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZzlVideoTests.swift; sourceTree = "<group>"; };
+		74350D9C244D7D690071867B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74350DA1244D7D690071867B /* ZzlVideoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZzlVideoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74350DA5244D7D690071867B /* ZzlVideoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZzlVideoUITests.swift; sourceTree = "<group>"; };
+		74350DA7244D7D690071867B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBDED7B9FF9AC866075FE921 /* Pods_ZzlVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZzlVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2086A34DB41983EDB0529CC /* Pods-ZzlVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZzlVideo.release.xcconfig"; path = "Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74350D7D244D7D680071867B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1042C6F0099556CF6C21468 /* Pods_ZzlVideo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74350D93244D7D690071867B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74350D9E244D7D690071867B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		037C0DC767C6D2D60E289048 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBDED7B9FF9AC866075FE921 /* Pods_ZzlVideo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74350D77244D7D680071867B = {
+			isa = PBXGroup;
+			children = (
+				74350D82244D7D680071867B /* ZzlVideo */,
+				74350D99244D7D690071867B /* ZzlVideoTests */,
+				74350DA4244D7D690071867B /* ZzlVideoUITests */,
+				74350D81244D7D680071867B /* Products */,
+				FCADB9B1698E37723A2542FA /* Pods */,
+				037C0DC767C6D2D60E289048 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		74350D81244D7D680071867B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74350D80244D7D680071867B /* ZzlVideo.app */,
+				74350D96244D7D690071867B /* ZzlVideoTests.xctest */,
+				74350DA1244D7D690071867B /* ZzlVideoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74350D82244D7D680071867B /* ZzlVideo */ = {
+			isa = PBXGroup;
+			children = (
+				74350D83244D7D680071867B /* AppDelegate.swift */,
+				74350D85244D7D680071867B /* SceneDelegate.swift */,
+				74350D87244D7D680071867B /* ViewController.swift */,
+				74350D89244D7D680071867B /* Main.storyboard */,
+				74350D8C244D7D680071867B /* Assets.xcassets */,
+				74350D8E244D7D690071867B /* LaunchScreen.storyboard */,
+				74350D91244D7D690071867B /* Info.plist */,
+			);
+			path = ZzlVideo;
+			sourceTree = "<group>";
+		};
+		74350D99244D7D690071867B /* ZzlVideoTests */ = {
+			isa = PBXGroup;
+			children = (
+				74350D9A244D7D690071867B /* ZzlVideoTests.swift */,
+				74350D9C244D7D690071867B /* Info.plist */,
+			);
+			path = ZzlVideoTests;
+			sourceTree = "<group>";
+		};
+		74350DA4244D7D690071867B /* ZzlVideoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				74350DA5244D7D690071867B /* ZzlVideoUITests.swift */,
+				74350DA7244D7D690071867B /* Info.plist */,
+			);
+			path = ZzlVideoUITests;
+			sourceTree = "<group>";
+		};
+		FCADB9B1698E37723A2542FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44A3EF16C46FCF578784569D /* Pods-ZzlVideo.debug.xcconfig */,
+				E2086A34DB41983EDB0529CC /* Pods-ZzlVideo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74350D7F244D7D680071867B /* ZzlVideo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74350DAA244D7D690071867B /* Build configuration list for PBXNativeTarget "ZzlVideo" */;
+			buildPhases = (
+				ADC77F58D31B325FCF436C33 /* [CP] Check Pods Manifest.lock */,
+				74350D7C244D7D680071867B /* Sources */,
+				74350D7D244D7D680071867B /* Frameworks */,
+				74350D7E244D7D680071867B /* Resources */,
+				6B1D6469A234D0294E86DCA6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZzlVideo;
+			productName = ZzlVideo;
+			productReference = 74350D80244D7D680071867B /* ZzlVideo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		74350D95244D7D690071867B /* ZzlVideoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74350DAD244D7D690071867B /* Build configuration list for PBXNativeTarget "ZzlVideoTests" */;
+			buildPhases = (
+				74350D92244D7D690071867B /* Sources */,
+				74350D93244D7D690071867B /* Frameworks */,
+				74350D94244D7D690071867B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74350D98244D7D690071867B /* PBXTargetDependency */,
+			);
+			name = ZzlVideoTests;
+			productName = ZzlVideoTests;
+			productReference = 74350D96244D7D690071867B /* ZzlVideoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		74350DA0244D7D690071867B /* ZzlVideoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74350DB0244D7D690071867B /* Build configuration list for PBXNativeTarget "ZzlVideoUITests" */;
+			buildPhases = (
+				74350D9D244D7D690071867B /* Sources */,
+				74350D9E244D7D690071867B /* Frameworks */,
+				74350D9F244D7D690071867B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74350DA3244D7D690071867B /* PBXTargetDependency */,
+			);
+			name = ZzlVideoUITests;
+			productName = ZzlVideoUITests;
+			productReference = 74350DA1244D7D690071867B /* ZzlVideoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74350D78244D7D680071867B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "dev10001 fh";
+				TargetAttributes = {
+					74350D7F244D7D680071867B = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					74350D95244D7D690071867B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 74350D7F244D7D680071867B;
+					};
+					74350DA0244D7D690071867B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 74350D7F244D7D680071867B;
+					};
+				};
+			};
+			buildConfigurationList = 74350D7B244D7D680071867B /* Build configuration list for PBXProject "ZzlVideo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 74350D77244D7D680071867B;
+			productRefGroup = 74350D81244D7D680071867B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74350D7F244D7D680071867B /* ZzlVideo */,
+				74350D95244D7D690071867B /* ZzlVideoTests */,
+				74350DA0244D7D690071867B /* ZzlVideoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74350D7E244D7D680071867B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74350D90244D7D690071867B /* LaunchScreen.storyboard in Resources */,
+				74350D8D244D7D680071867B /* Assets.xcassets in Resources */,
+				74350D8B244D7D680071867B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74350D94244D7D690071867B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74350D9F244D7D690071867B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B1D6469A234D0294E86DCA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADC77F58D31B325FCF436C33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZzlVideo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74350D7C244D7D680071867B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74350D88244D7D680071867B /* ViewController.swift in Sources */,
+				74350D84244D7D680071867B /* AppDelegate.swift in Sources */,
+				74350D86244D7D680071867B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74350D92244D7D690071867B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74350D9B244D7D690071867B /* ZzlVideoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74350D9D244D7D690071867B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74350DA6244D7D690071867B /* ZzlVideoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74350D98244D7D690071867B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74350D7F244D7D680071867B /* ZzlVideo */;
+			targetProxy = 74350D97244D7D690071867B /* PBXContainerItemProxy */;
+		};
+		74350DA3244D7D690071867B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74350D7F244D7D680071867B /* ZzlVideo */;
+			targetProxy = 74350DA2244D7D690071867B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		74350D89244D7D680071867B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74350D8A244D7D680071867B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		74350D8E244D7D690071867B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74350D8F244D7D690071867B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74350DA8244D7D690071867B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		74350DA9244D7D690071867B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		74350DAB244D7D690071867B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44A3EF16C46FCF578784569D /* Pods-ZzlVideo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZzlVideo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		74350DAC244D7D690071867B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2086A34DB41983EDB0529CC /* Pods-ZzlVideo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZzlVideo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		74350DAE244D7D690071867B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZzlVideoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZzlVideo.app/ZzlVideo";
+			};
+			name = Debug;
+		};
+		74350DAF244D7D690071867B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZzlVideoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZzlVideo.app/ZzlVideo";
+			};
+			name = Release;
+		};
+		74350DB1244D7D690071867B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZzlVideoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZzlVideo;
+			};
+			name = Debug;
+		};
+		74350DB2244D7D690071867B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZzlVideoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZzlVideo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74350D7B244D7D680071867B /* Build configuration list for PBXProject "ZzlVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74350DA8244D7D690071867B /* Debug */,
+				74350DA9244D7D690071867B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74350DAA244D7D690071867B /* Build configuration list for PBXNativeTarget "ZzlVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74350DAB244D7D690071867B /* Debug */,
+				74350DAC244D7D690071867B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74350DAD244D7D690071867B /* Build configuration list for PBXNativeTarget "ZzlVideoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74350DAE244D7D690071867B /* Debug */,
+				74350DAF244D7D690071867B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74350DB0244D7D690071867B /* Build configuration list for PBXNativeTarget "ZzlVideoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74350DB1244D7D690071867B /* Debug */,
+				74350DB2244D7D690071867B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74350D78244D7D680071867B /* Project object */;
+}
