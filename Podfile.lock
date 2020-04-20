@@ -5,7 +5,6 @@ PODS:
   - JXSegmentedView (1.0.6)
   - Kingfisher (5.13.4):
     - Kingfisher/Core (= 5.13.4)
-  - Kingfisher/Core (5.13.4)
   - MJRefresh (3.4.1)
   - ObjectMapper (3.5.2)
   - Realm (4.4.1):
@@ -68,6 +67,6 @@ SPEC CHECKSUMS:
   SwiftEventBus: b30f617a6aca5a9336464b4d3f5931034762f2d5
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 690fb6d83a540cbe88c6643c59025e19900eeb22
+PODFILE CHECKSUM: e78d8e8a885e51561af429f20eb2ee89e8036604
 
 COCOAPODS: 1.8.4
