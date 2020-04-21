@@ -10,12 +10,22 @@ import UIKit
 import JXSegmentedView
 
 class MMHomeSecondViewController: UIViewController, JXSegmentedListContainerViewListDelegate {
-
+    
+    var titleTag:MMArticleType? = nil
+    let resquest = AAApiRequest()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        print(titleTag?.value ?? "")
+        getList()
     }
-
+    
+    func getList() {
+        resquest.article(sender: ["size":"m", "tag":titleTag?.value ?? "", "per_page":"10", "page":"1"]) { (response) in
+//            print(response)
+        }
+    }
+    
     func listView() -> UIView {
         return view
     }

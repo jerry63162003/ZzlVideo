@@ -15,16 +15,28 @@ class MMHomeViewController: UIViewController, JXSegmentedViewDelegate, JXSegment
     let segmentedDataSource = JXSegmentedTitleDataSource()
     let indicator = JXSegmentedIndicatorLineView()
     var listContainerView : JXSegmentedListContainerView! = nil
-    var personalTitles = ["个人统计分析", "个人账变明细", "个人游戏记录"]
+    var personalTitles:Array<String> = []
     var selectedIndex = 0
+    var listArr:Array<MMArticleType> = []
+    let resquest = AAApiRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.removeFromSuperview()
-        setUpConfigView()
+        getTitleList()
+    }
+    
+    func getTitleList() {
+        resquest.articleType { (response) in
+            self.listArr = response
+            self.setUpConfigView()
+        }
     }
     
     func setUpConfigView() {
+        for list in self.listArr {
+            personalTitles.append(list.text ?? "")
+        }
         view.addSubview(segmentedView)
         segmentedView.backgroundColor = .white
         segmentedView.delegate = self
@@ -70,6 +82,9 @@ class MMHomeViewController: UIViewController, JXSegmentedViewDelegate, JXSegment
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        return MMHomeSecondViewController()
+        let vc = MMHomeSecondViewController()
+        vc.titleTag = listArr[index]
+        
+        return vc
     }
 }

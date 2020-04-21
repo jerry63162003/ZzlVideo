@@ -21,6 +21,10 @@
 		74350DC3244D88160071867B /* MMMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC2244D88160071867B /* MMMissionViewController.swift */; };
 		74350DC5244D88270071867B /* MMAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC4244D88270071867B /* MMAccountViewController.swift */; };
 		74350DC8244DBA5A0071867B /* MMHomeSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC7244DBA5A0071867B /* MMHomeSecondViewController.swift */; };
+		74372ACC244EB037001BBB89 /* AAApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372ACB244EB037001BBB89 /* AAApi.swift */; };
+		74372ACF244ED815001BBB89 /* AAApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372ACE244ED814001BBB89 /* AAApiRequest.swift */; };
+		74372AD2244EDD0B001BBB89 /* MMArticleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372AD1244EDD0B001BBB89 /* MMArticleType.swift */; };
+		74372AD4244EDFA4001BBB89 /* MMArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372AD3244EDFA4001BBB89 /* MMArticle.swift */; };
 		C1042C6F0099556CF6C21468 /* Pods_ZzlVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDED7B9FF9AC866075FE921 /* Pods_ZzlVideo.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +67,10 @@
 		74350DC2244D88160071867B /* MMMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMissionViewController.swift; sourceTree = "<group>"; };
 		74350DC4244D88270071867B /* MMAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAccountViewController.swift; sourceTree = "<group>"; };
 		74350DC7244DBA5A0071867B /* MMHomeSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHomeSecondViewController.swift; sourceTree = "<group>"; };
+		74372ACB244EB037001BBB89 /* AAApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAApi.swift; sourceTree = "<group>"; };
+		74372ACE244ED814001BBB89 /* AAApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAApiRequest.swift; sourceTree = "<group>"; };
+		74372AD1244EDD0B001BBB89 /* MMArticleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMArticleType.swift; sourceTree = "<group>"; };
+		74372AD3244EDFA4001BBB89 /* MMArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMArticle.swift; sourceTree = "<group>"; };
 		DBDED7B9FF9AC866075FE921 /* Pods_ZzlVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZzlVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2086A34DB41983EDB0529CC /* Pods-ZzlVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZzlVideo.release.xcconfig"; path = "Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +134,8 @@
 		74350D82244D7D680071867B /* ZzlVideo */ = {
 			isa = PBXGroup;
 			children = (
+				74372ACD244ECD10001BBB89 /* Api */,
+				74372AD0244EDCAB001BBB89 /* Model */,
 				74350DB9244D86680071867B /* Main */,
 				74350DB6244D85C90071867B /* Util */,
 				74350DB3244D83F60071867B /* Base */,
@@ -191,6 +201,24 @@
 				74350DC7244DBA5A0071867B /* MMHomeSecondViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		74372ACD244ECD10001BBB89 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				74372ACB244EB037001BBB89 /* AAApi.swift */,
+				74372ACE244ED814001BBB89 /* AAApiRequest.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		74372AD0244EDCAB001BBB89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74372AD1244EDD0B001BBB89 /* MMArticleType.swift */,
+				74372AD3244EDFA4001BBB89 /* MMArticle.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FCADB9B1698E37723A2542FA /* Pods */ = {
@@ -382,9 +410,13 @@
 				74350DC5244D88270071867B /* MMAccountViewController.swift in Sources */,
 				74350D84244D7D680071867B /* AppDelegate.swift in Sources */,
 				74350DC3244D88160071867B /* MMMissionViewController.swift in Sources */,
+				74372AD4244EDFA4001BBB89 /* MMArticle.swift in Sources */,
+				74372ACF244ED815001BBB89 /* AAApiRequest.swift in Sources */,
 				74350DBF244D87B20071867B /* MMVideoViewController.swift in Sources */,
+				74372AD2244EDD0B001BBB89 /* MMArticleType.swift in Sources */,
 				74350DB5244D84B30071867B /* BBTabBarController.swift in Sources */,
 				74350DC8244DBA5A0071867B /* MMHomeSecondViewController.swift in Sources */,
+				74372ACC244EB037001BBB89 /* AAApi.swift in Sources */,
 				74350DC1244D87ED0071867B /* MMTeachViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

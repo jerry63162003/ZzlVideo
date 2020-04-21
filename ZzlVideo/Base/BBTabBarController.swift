@@ -36,8 +36,8 @@ class BBTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func tabBarColorSetting(title:String,image:String,selectImage:String) ->UITabBarItem {
         let tabBar = UITabBarItem.init(title: title, image: UIImage.init(named: image)!.withRenderingMode(.alwaysOriginal), selectedImage: UIImage.init(named: selectImage)!.withRenderingMode(.alwaysOriginal))
-        tabBar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UUGlobeRedColor(), NSAttributedString.Key.font:UIFont.systemFont(ofSize: UUWidth() * 0.03)], for: .normal)
-        tabBar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(red:0.82, green:0.33, blue:0.29, alpha:1.0), NSAttributedString.Key.font:UIFont.systemFont(ofSize: UUWidth() * 0.03)], for: .selected)
+        tabBar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UUGlobeGrayColor(), NSAttributedString.Key.font:UIFont.systemFont(ofSize: UUWidth() * 0.03)], for: .normal)
+        tabBar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UUGlobeRedColor(), NSAttributedString.Key.font:UIFont.systemFont(ofSize: UUWidth() * 0.03)], for: .selected)
         
         if UUHeight() > 736 {
             tabBar.imageInsets = UIEdgeInsets.init(top: 5, left: 0, bottom: -5, right: 0)
@@ -69,27 +69,4 @@ class BBTabBarController: UITabBarController, UITabBarControllerDelegate {
         //        }
         return true
     }
-    
-    //    func toRootIndex(type:NNTabRouteType){
-    //        if type == .account || type == .pushMoney {
-    //            if NNAccount.user.isLogin == false {
-    //                toLoginViewController()
-    //                return
-    //            }
-    //        }
-    //
-    //        for (index,nav) in (viewControllers?.enumerated())! {
-    //            let indexNAV = nav as? NNNavigtionController
-    //            if indexNAV?.rootType == type {
-    //                selectedIndex = index
-    //                return
-    //            }
-    //        }
-    //        if type == .coupon {
-    //            let vc = NNPreferentialViewController()
-    //            vc.hidesBottomBarWhenPushed=true
-    //            NNNavigation().pushViewController(vc, animated: true)
-    //        }
-    //    }
-    
 }

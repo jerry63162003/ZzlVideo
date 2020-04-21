@@ -9,6 +9,10 @@
 import UIKit
 
 func UUGlobeRedColor() -> UIColor {
+    return UIColor(red:0.82, green:0.33, blue:0.29, alpha:1.0)
+}
+
+func UUGlobeGrayColor() -> UIColor {
     return UIColor(red: 0.34, green: 0.38, blue: 0.43, alpha: 1.00)
 }
 
