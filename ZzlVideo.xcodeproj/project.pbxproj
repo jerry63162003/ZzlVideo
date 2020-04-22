@@ -25,6 +25,8 @@
 		74372ACF244ED815001BBB89 /* AAApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372ACE244ED814001BBB89 /* AAApiRequest.swift */; };
 		74372AD2244EDD0B001BBB89 /* MMArticleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372AD1244EDD0B001BBB89 /* MMArticleType.swift */; };
 		74372AD4244EDFA4001BBB89 /* MMArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372AD3244EDFA4001BBB89 /* MMArticle.swift */; };
+		747CFB0D245024EA009B0831 /* MMHomeSecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CFB0C245024EA009B0831 /* MMHomeSecondTableViewCell.swift */; };
+		747CFB0F2450336D009B0831 /* UUHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CFB0E2450336C009B0831 /* UUHud.swift */; };
 		C1042C6F0099556CF6C21468 /* Pods_ZzlVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDED7B9FF9AC866075FE921 /* Pods_ZzlVideo.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		74372ACE244ED814001BBB89 /* AAApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAApiRequest.swift; sourceTree = "<group>"; };
 		74372AD1244EDD0B001BBB89 /* MMArticleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMArticleType.swift; sourceTree = "<group>"; };
 		74372AD3244EDFA4001BBB89 /* MMArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMArticle.swift; sourceTree = "<group>"; };
+		747CFB0C245024EA009B0831 /* MMHomeSecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHomeSecondTableViewCell.swift; sourceTree = "<group>"; };
+		747CFB0E2450336C009B0831 /* UUHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUHud.swift; sourceTree = "<group>"; };
 		DBDED7B9FF9AC866075FE921 /* Pods_ZzlVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZzlVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2086A34DB41983EDB0529CC /* Pods-ZzlVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZzlVideo.release.xcconfig"; path = "Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				74350DB7244D85EC0071867B /* UUNormalUtil.swift */,
+				747CFB0E2450336C009B0831 /* UUHud.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			children = (
 				74350DBA244D867F0071867B /* MMHomeViewController.swift */,
 				74350DC7244DBA5A0071867B /* MMHomeSecondViewController.swift */,
+				747CFB0B2450245F009B0831 /* view */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -219,6 +225,14 @@
 				74372AD3244EDFA4001BBB89 /* MMArticle.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		747CFB0B2450245F009B0831 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				747CFB0C245024EA009B0831 /* MMHomeSecondTableViewCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		FCADB9B1698E37723A2542FA /* Pods */ = {
@@ -405,10 +419,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				74350DBD244D87440071867B /* BBNavigationController.swift in Sources */,
+				747CFB0F2450336D009B0831 /* UUHud.swift in Sources */,
 				74350DB8244D85EC0071867B /* UUNormalUtil.swift in Sources */,
 				74350DBB244D867F0071867B /* MMHomeViewController.swift in Sources */,
 				74350DC5244D88270071867B /* MMAccountViewController.swift in Sources */,
 				74350D84244D7D680071867B /* AppDelegate.swift in Sources */,
+				747CFB0D245024EA009B0831 /* MMHomeSecondTableViewCell.swift in Sources */,
 				74350DC3244D88160071867B /* MMMissionViewController.swift in Sources */,
 				74372AD4244EDFA4001BBB89 /* MMArticle.swift in Sources */,
 				74372ACF244ED815001BBB89 /* AAApiRequest.swift in Sources */,

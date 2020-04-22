@@ -1,7 +1,10 @@
 //
-//  SnapKit
+//  RequestModifier.swift
+//  Kingfisher
 //
-//  Copyright (c) 2011-Present SnapKit Team - https://github.com/SnapKit
+//  Created by Wei Wang on 2016/09/05.
+//
+//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,29 +24,30 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#if os(iOS) || os(tvOS)
-import UIKit
-#else
-import AppKit
-#endif
+import Foundation
 
-#if os(iOS) || os(tvOS)
-public protocol ConstraintDirectionalInsetTarget: ConstraintConstantTarget {
+/// Request modifier of image downloader.
+public protocol ImageDownloadRequestModifier {
+    func modified(for request: URLRequest) -> URLRequest?
 }
 
-@available(iOS 11.0, tvOS 11.0, *)
-extension ConstraintDirectionalInsets: ConstraintDirectionalInsetTarget {
-}
-
-extension ConstraintDirectionalInsetTarget {
-
-  @available(iOS 11.0, tvOS 11.0, *)
-  internal var constraintDirectionalInsetTargetValue: ConstraintDirectionalInsets {
-    if let amount = self as? ConstraintDirectionalInsets {
-      return amount
-    } else {
-      return ConstraintDirectionalInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+struct NoModifier: ImageDownloadRequestModifier {
+    static let `default` = NoModifier()
+    private init() {}
+    func modified(for request: URLRequest) -> URLRequest? {
+        return request
     }
-  }
 }
-#endif
+
+public struct AnyModifier: ImageDownloadRequestModifier {
+    
+    let block: (URLRequest) -> URLRequest?
+    
+    public func modified(for request: URLRequest) -> URLRequest? {
+        return block(request)
+    }
+    
+    public init(modify: @escaping (URLRequest) -> URLRequest? ) {
+        block = modify
+    }
+}

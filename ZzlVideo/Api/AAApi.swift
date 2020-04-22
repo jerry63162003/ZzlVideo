@@ -93,17 +93,18 @@ class AAApi {
     typealias blockArrayRes = (_ res : Array<Dictionary<String, Any>>)->Void
     typealias blockError = (_ res : String)->Void
     typealias blockTokenError = ()->Void
-    typealias NNSender = [String:Any]
     
-    private var manager: Session = {
+    private var manager: SessionManager = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 10
-        return Session(configuration: configuration)
+        return SessionManager(configuration: configuration)
     }()
     
     private var header: HTTPHeaders = {
         var header = HTTPHeaders()
-        header.add(name: "Content-Type", value: "application/json;charset=UTF-8")
+        var dic:Dictionary<String, String> = [:]
+        dic["Content-Type"] = "application/json;charset=UTF-8"
+        header = dic
         return header
     }()
     

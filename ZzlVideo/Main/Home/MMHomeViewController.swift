@@ -56,14 +56,22 @@ class MMHomeViewController: UIViewController, JXSegmentedViewDelegate, JXSegment
         indicator.indicatorHeight=2
         segmentedDataSource.reloadData(selectedIndex: 0)
         segmentedView.dataSource = segmentedDataSource
-
         segmentedView.indicators = [indicator]
-
+        
+        let grayLine = UIView()
+        grayLine.backgroundColor = .groupTableViewBackground
+        view.addSubview(grayLine)
+        grayLine.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(segmentedView.snp.bottom)
+            make.height.equalTo(1)
+        }
+        
         listContainerView = JXSegmentedListContainerView.init(dataSource: self)
         view.addSubview(listContainerView)
         listContainerView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(segmentedView.snp.bottom)
+            make.top.equalTo(grayLine.snp.bottom)
             make.bottom.equalTo(view)
         }
         segmentedView.contentScrollView = listContainerView.scrollView

@@ -29,6 +29,8 @@ class MMArticle: NSObject, Mappable {
     var shareUrl : String?
     var videoUrl : String?
     var images : Array<MMArticleImages>?
+    var adUrl: String?
+    var adStyle: NSInteger?
     
     required init?(map: Map) {
         
@@ -56,6 +58,9 @@ class MMArticle: NSObject, Mappable {
         shareUrl <- map["share_url"]
         videoUrl <- map["video_url"]
         images <- map["images"]
+        
+        adUrl <- map["ad_url"]
+        adStyle <- map["ad_style"]
     }
 }
 

@@ -1,7 +1,9 @@
 //
-//  SnapKit
+//  Box.swift
+//  Kingfisher
 //
-//  Copyright (c) 2011-Present SnapKit Team - https://github.com/SnapKit
+//  Created by Wei Wang on 2018/3/17.
+//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,14 +23,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#if os(iOS) || os(tvOS)
-    import UIKit
-#else
-    import AppKit
-#endif
+import Foundation
 
-
-#if os(iOS) || os(tvOS)
-    @available(iOS 11.0, tvOS 11.0, *)
-    public typealias ConstraintDirectionalInsets = NSDirectionalEdgeInsets
-#endif
+class Box<T> {
+    let value: T
+    
+    init(_ value: T) {
+        self.value = value
+    }
+}
