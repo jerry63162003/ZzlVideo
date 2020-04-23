@@ -43,25 +43,24 @@ class MMHomeViewController: UIViewController, JXSegmentedViewDelegate, JXSegment
         segmentedView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.top.equalTo(topLayoutGuide.snp.top).offset(UUStatusBarHeight())
-            make.height.equalTo(UUHeight() * 0.0558)
+            make.height.equalTo(UUCalculateSize(50))
         }
 
         segmentedDataSource.titles = personalTitles
         segmentedDataSource.titleSelectedColor = UUGlobeRedColor()
-        segmentedDataSource.titleNormalColor=UIColor.gray
-        segmentedDataSource.titleNormalFont=UIFont.systemFont(ofSize: 18)
+        segmentedDataSource.titleNormalColor = UIColor.gray
+        segmentedDataSource.titleNormalFont = UUNormalFontSize(18)
 
         indicator.lineStyle = .lengthenOffset
         indicator.indicatorColor = UUGlobeRedColor()
-        indicator.indicatorHeight=2
+        indicator.indicatorHeight = 2
         segmentedDataSource.reloadData(selectedIndex: 0)
         segmentedView.dataSource = segmentedDataSource
         segmentedView.indicators = [indicator]
         
-        let grayLine = UIView()
-        grayLine.backgroundColor = .groupTableViewBackground
-        view.addSubview(grayLine)
-        grayLine.snp.makeConstraints { (make) in
+        let hLine = hLineView()
+        view.addSubview(hLine)
+        hLine.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.top.equalTo(segmentedView.snp.bottom)
             make.height.equalTo(1)
@@ -71,7 +70,7 @@ class MMHomeViewController: UIViewController, JXSegmentedViewDelegate, JXSegment
         view.addSubview(listContainerView)
         listContainerView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(grayLine.snp.bottom)
+            make.top.equalTo(hLine.snp.bottom)
             make.bottom.equalTo(view)
         }
         segmentedView.contentScrollView = listContainerView.scrollView
@@ -92,7 +91,6 @@ class MMHomeViewController: UIViewController, JXSegmentedViewDelegate, JXSegment
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         let vc = MMHomeSecondViewController()
         vc.titleTag = listArr[index]
-        
         return vc
     }
 }

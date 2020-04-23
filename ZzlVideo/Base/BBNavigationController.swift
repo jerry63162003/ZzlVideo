@@ -13,10 +13,9 @@ class BBNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.barTintColor = UIColor(red: 0.84, green: 0.35, blue: 0.43, alpha: 1.00)
-//        navigationBar.tintColor = UIColor.white
-//        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-//        navigationBar.barStyle = .black
+        navigationBar.barTintColor = UUGlobePinkColor()
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationBar.barStyle = .default
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

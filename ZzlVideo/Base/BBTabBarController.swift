@@ -36,7 +36,7 @@ class BBTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func tabBarColorSetting(title:String,image:String,selectImage:String) ->UITabBarItem {
         let tabBar = UITabBarItem.init(title: title, image: UIImage.init(named: image)!.withRenderingMode(.alwaysOriginal), selectedImage: UIImage.init(named: selectImage)!.withRenderingMode(.alwaysOriginal))
-        tabBar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UUGlobeGrayColor(), NSAttributedString.Key.font:UIFont.systemFont(ofSize: UUWidth() * 0.03)], for: .normal)
+        tabBar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UUGrayTextColor(), NSAttributedString.Key.font:UIFont.systemFont(ofSize: UUWidth() * 0.03)], for: .normal)
         tabBar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UUGlobeRedColor(), NSAttributedString.Key.font:UIFont.systemFont(ofSize: UUWidth() * 0.03)], for: .selected)
         
         if UUHeight() > 736 {

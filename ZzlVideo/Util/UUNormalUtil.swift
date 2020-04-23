@@ -7,31 +7,36 @@
 //
 
 import UIKit
+import MJRefresh
+
+/*
+ * Color
+ */
+func UUGlobePinkColor() -> UIColor {
+    return UIColor(red: 0.89, green: 0.29, blue: 0.40, alpha: 1.00)
+}
 
 func UUGlobeRedColor() -> UIColor {
     return UIColor(red:0.82, green:0.33, blue:0.29, alpha:1.0)
 }
 
-func UUGlobeGrayColor() -> UIColor {
-    return UIColor(red: 0.34, green: 0.38, blue: 0.43, alpha: 1.00)
+func UUGlobeGrayBgColor() -> UIColor {
+    return UIColor.groupTableViewBackground
 }
 
+func UUGrayTextColor() ->UIColor {
+    return UIColor(red: 0.72, green: 0.72, blue: 0.72, alpha: 1.00)
+}
+
+/*
+ * Size
+ */
 func UUWidth() -> CGFloat {
     return UIScreen.main.bounds.size.width;
 }
 
-func UUHeight() ->CGFloat{
+func UUHeight() -> CGFloat{
     return UIScreen.main.bounds.size.height;
-}
-
-func UUKeyWindow() -> UIWindow {
-    if #available(iOS 13.0, *) {
-        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        return keyWindow!
-    } else {
-        let keyWindow = UIApplication.shared.keyWindow
-        return keyWindow!
-    }
 }
 
 func UUStatusBarHeight() -> CGFloat {
@@ -49,34 +54,80 @@ func UUNavigationBarHeight(controller: UIViewController) -> CGFloat {
     return controller.navigationController?.navigationBar.frame.size.height ?? 0
 }
 
-func UUIsiPhoneX() -> Bool {
-    return UUStatusBarHeight() > 21
-}
-
 func UUBottomHeight() -> CGFloat {
     return ( UUIsiPhoneX() ? 34.0 : 0.0 )
 }
 
-func normalFontSize(_ size: CGFloat) -> UIFont {
-    return UIFont.systemFont(ofSize: size/414 * UUWidth())
-}
-
-func boldFontSize(_ size: CGFloat) -> UIFont {
-    return UIFont.boldSystemFont(ofSize: size/414 * UUWidth())
-}
-
-func globeSpace() -> CGFloat {
+func UUGlobeSpace() -> CGFloat {
     return 10 / 414 * UUWidth()
 }
 
-func grayTextColor() ->UIColor {
-    return UIColor(red: 0.72, green: 0.72, blue: 0.72, alpha: 1.00)
+func UUCalculateSize(_ num: CGFloat) -> CGFloat {
+    return num / 414 * UUWidth()
 }
 
-func goOustSideSafari(urlStr:String) {
+/*
+ * KeyWindow
+ */
+func UUKeyWindow() -> UIWindow {
+    if #available(iOS 13.0, *) {
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        return keyWindow!
+    } else {
+        let keyWindow = UIApplication.shared.keyWindow
+        return keyWindow!
+    }
+}
+
+/*
+ * Judgment
+ */
+func UUIsiPhoneX() -> Bool {
+    return UUStatusBarHeight() > 21
+}
+
+/*
+ * Font
+ */
+func UUNormalFontSize(_ size: CGFloat) -> UIFont {
+    return UIFont.systemFont(ofSize: UUCalculateSize(size))
+}
+
+func UUBoldFontSize(_ size: CGFloat) -> UIFont {
+    return UIFont.boldSystemFont(ofSize: UUCalculateSize(size))
+}
+
+/*
+ * Go Safari
+ */
+func UUGoOustSideSafari(urlStr:String) {
     if #available(iOS 10.0, *) {
         UIApplication.shared.open(URL.init(string: urlStr)!, options: [:], completionHandler: nil)
     } else {
         UIApplication.shared.openURL(URL.init(string: urlStr)!)
     }
+}
+
+/*
+ * MJ_Refresh
+ */
+func UURefreshHeader(_ refreshingBlock: @escaping (() -> ()))->MJRefreshHeader{
+    let header = MJRefreshNormalHeader(refreshingBlock: refreshingBlock)
+    header.lastUpdatedTimeLabel?.isHidden = true
+    header.stateLabel?.isHidden = false
+    return header
+}
+
+func UURefreshFooter(_ refreshingBlock: @escaping (() -> ()))->MJRefreshFooter{
+    let footer = MJRefreshAutoNormalFooter(refreshingBlock: refreshingBlock)
+    return footer
+}
+
+/*
+ * LineView
+ */
+func hLineView() -> UIView {
+    let grayLine = UIView()
+    grayLine.backgroundColor = .groupTableViewBackground
+    return grayLine
 }

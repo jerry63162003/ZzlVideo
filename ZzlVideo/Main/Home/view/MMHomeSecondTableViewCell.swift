@@ -13,21 +13,15 @@ class MMHomeSecondTableViewCell: UITableViewCell {
     
     static func cellHeight(type: ArticleType) -> CGFloat{
         switch type {
-        case .ad: return 300
-        case .video: return 100
-        case .noImg: return 100
-        case .oneImg: return 200
-        case .threeImg: return 250
+        case .ad: return UUCalculateSize(300)
+        case .video: return UUCalculateSize(100)
+        case .noImg: return UUCalculateSize(100)
+        case .oneImg: return UUCalculateSize(150)
+        case .threeImg: return UUCalculateSize(220)
         }
     }
     
     var titleLab = UILabel()
-    lazy var picImageView:UIImageView = {
-        let image = UIImageView()
-        image.layer.cornerRadius = 8.0
-        image.clipsToBounds = true
-        return image
-    }()
     let sourceLab = UILabel()
     let timeLab = UILabel()
     
@@ -58,55 +52,63 @@ class MMHomeSecondTableViewCell: UITableViewCell {
     
     func setUpAdView(_ data: MMArticle) {
         backgroundColor = .white
-        let width = UUWidth() - 2 * globeSpace()
-        let sourceHeight = 14/414*UUWidth() + globeSpace()
-        let sourceWidth = 14/414*UUWidth()*2 + globeSpace()
+        let width = UUWidth() - 2 * UUGlobeSpace()
+        let sourceHeight = UUCalculateSize(14) + UUGlobeSpace()
+        let sourceWidth = UUCalculateSize(14) * 2 + UUGlobeSpace()
         
         titleLab.text = data.title
-        titleLab.font = boldFontSize(20)
+        titleLab.font = UUBoldFontSize(20)
         titleLab.numberOfLines = 0
         let labelSize = titleLab.sizeThatFits(CGSize.init(width: width, height: CGFloat(MAXFLOAT)))
         addSubview(titleLab)
         titleLab.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(globeSpace())
-            make.left.equalToSuperview().offset(globeSpace())
+            make.top.equalToSuperview().offset(UUGlobeSpace())
+            make.left.equalToSuperview().offset(UUGlobeSpace())
             make.size.equalTo(labelSize)
         }
-        for model in data.images ?? [] {
-            picImageView.kf.setImage(with: URL.init(string: model.imageUrl ?? ""))
+        
+        var picImageView = UIImageView()
+        for i in 0..<(data.images?.count ?? 0) {
+            let model = data.images?[i]
+            
+            picImageView = UIImageView()
+            picImageView.layer.cornerRadius = 8.0
+            picImageView.clipsToBounds = true
+            picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""))
             let spaceCount = (data.images?.count ?? 0) - 1
-            let imgWidth = (width - CGFloat(spaceCount) * globeSpace()) / (data.images?.count ?? 0)
-            let imgHeight = 300 - labelSize.height - globeSpace()*4 - sourceHeight
+            let imgWidth = (width - CGFloat(spaceCount) * UUGlobeSpace()) / (data.images?.count ?? 0)
+            let imgHeight = MMHomeSecondTableViewCell.cellHeight(type: .ad) - labelSize.height - UUGlobeSpace()*4 - sourceHeight
+            let leftSpace = CGFloat(i) * (UUGlobeSpace() + imgWidth)
             addSubview(picImageView)
             picImageView.snp.makeConstraints { (make) in
-                make.left.equalTo(titleLab)
-                make.top.equalTo(titleLab.snp.bottom).offset(globeSpace())
+                make.left.equalTo(titleLab).offset(leftSpace)
+                make.top.equalTo(titleLab.snp.bottom).offset(UUGlobeSpace())
                 make.size.equalTo(CGSize.init(width: imgWidth, height: imgHeight))
             }
         }
-         
+        
         sourceLab.text = "廣告"
         sourceLab.layer.cornerRadius = 4.0
         sourceLab.layer.borderWidth = 1.0
-        sourceLab.layer.borderColor = grayTextColor().cgColor
-        sourceLab.textColor = grayTextColor()
-        sourceLab.font = normalFontSize(14)
+        sourceLab.layer.borderColor = UUGrayTextColor().cgColor
+        sourceLab.textColor = UUGrayTextColor()
+        sourceLab.font = UUNormalFontSize(14)
         sourceLab.textAlignment = .center
         addSubview(sourceLab)
         sourceLab.snp.makeConstraints { (make) in
-            make.top.equalTo(picImageView.snp.bottom).offset(globeSpace())
+            make.top.equalTo(picImageView.snp.bottom).offset(UUGlobeSpace())
             make.left.equalTo(titleLab)
             make.width.equalTo(sourceWidth)
             make.height.equalTo(sourceHeight)
         }
         
         timeLab.text = "剛剛"
-        timeLab.textColor = grayTextColor()
-        timeLab.font = normalFontSize(14)
+        timeLab.textColor = UUGrayTextColor()
+        timeLab.font = UUNormalFontSize(14)
         addSubview(timeLab)
         timeLab.snp.makeConstraints { (make) in
             make.centerY.equalTo(sourceLab)
-            make.left.equalTo(sourceLab.snp.right).offset(globeSpace())
+            make.left.equalTo(sourceLab.snp.right).offset(UUGlobeSpace())
         }
     }
     
@@ -116,36 +118,119 @@ class MMHomeSecondTableViewCell: UITableViewCell {
     
     func setUpNoImgView(_ data: MMArticle) {
         backgroundColor = .white
-        let width = UUWidth() - 2 * globeSpace()
+        let width = UUWidth() - 2 * UUGlobeSpace()
         
         titleLab.text = data.title
-        titleLab.font = boldFontSize(20)
+        titleLab.font = UUBoldFontSize(20)
         titleLab.numberOfLines = 0
         let labelSize = titleLab.sizeThatFits(CGSize.init(width: width, height: CGFloat(MAXFLOAT)))
         addSubview(titleLab)
         titleLab.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(globeSpace())
-            make.left.equalToSuperview().offset(globeSpace())
+            make.top.equalToSuperview().offset(UUGlobeSpace())
+            make.left.equalToSuperview().offset(UUGlobeSpace())
             make.size.equalTo(labelSize)
         }
         
         sourceLab.text = "\(data.sourceName ?? "") \(data.commentsCount ?? 0)觀看 \(data.createdAtHuman ?? "")"
-        sourceLab.textColor = grayTextColor()
-        sourceLab.font = normalFontSize(14)
+        sourceLab.textColor = UUGrayTextColor()
+        sourceLab.font = UUNormalFontSize(14)
         sourceLab.textAlignment = .center
         addSubview(sourceLab)
         sourceLab.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-globeSpace())
+            make.bottom.equalToSuperview().offset(-UUGlobeSpace())
             make.left.equalTo(titleLab)
         }
     }
     
     func setUpOneImgView(_ data: MMArticle) {
-        backgroundColor = .blue
+        backgroundColor = .white
+        let width = UUWidth() - 2 * UUGlobeSpace()
+
+        sourceLab.text = "\(data.sourceName ?? "") \(data.commentsCount ?? 0)觀看 \(data.createdAtHuman ?? "")"
+        sourceLab.textColor = UUGrayTextColor()
+        sourceLab.font = UUNormalFontSize(14)
+        sourceLab.textAlignment = .center
+        let size = sourceLab.sizeThatFits(CGSize.init(width: width, height: CGFloat(MAXFLOAT)))
+        addSubview(sourceLab)
+        sourceLab.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-UUGlobeSpace())
+            make.left.equalToSuperview().offset(UUGlobeSpace())
+            make.size.equalTo(size)
+        }
+
+        let model = data.images?[0]
+        let picImageView = UIImageView()
+        picImageView.layer.cornerRadius = 8.0
+        picImageView.clipsToBounds = true
+        picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""))
+        let imageHeight = MMHomeSecondTableViewCell.cellHeight(type: .oneImg) - size.height - 3 * UUGlobeSpace()
+        let imageWidth = width * 0.4
+        addSubview(picImageView)
+        picImageView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(UUGlobeSpace())
+//            make.bottom.equalTo(sourceLab.snp.top).offset(-UUGlobeSpace())
+            make.right.equalToSuperview().offset(-UUGlobeSpace())
+            make.size.equalTo(CGSize.init(width: imageWidth, height: imageHeight))
+        }
+
+        titleLab.text = data.title
+        titleLab.font = UUBoldFontSize(20)
+        titleLab.numberOfLines = 0
+        let labelSize = titleLab.sizeThatFits(CGSize.init(width: width * 0.6 - UUGlobeSpace(), height: imageHeight))
+        addSubview(titleLab)
+        titleLab.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(UUGlobeSpace())
+            make.left.equalTo(sourceLab)
+            make.size.equalTo(labelSize)
+        }
     }
     
     func setUpThreeImgView(_ data: MMArticle) {
-        backgroundColor = .purple
+        backgroundColor = .white
+        let width = UUWidth() - 2 * UUGlobeSpace()
+
+        titleLab.text = data.title
+        titleLab.font = UUBoldFontSize(20)
+        titleLab.numberOfLines = 0
+        let labelSize = titleLab.sizeThatFits(CGSize.init(width: width, height: CGFloat(MAXFLOAT)))
+        addSubview(titleLab)
+        titleLab.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(UUGlobeSpace())
+            make.left.equalToSuperview().offset(UUGlobeSpace())
+            make.size.equalTo(labelSize)
+        }
+
+        sourceLab.text = "\(data.sourceName ?? "") \(data.commentsCount ?? 0)觀看 \(data.createdAtHuman ?? "")"
+        sourceLab.textColor = UUGrayTextColor()
+        sourceLab.font = UUNormalFontSize(14)
+        sourceLab.textAlignment = .center
+        let size = sourceLab.sizeThatFits(CGSize.init(width: width, height: CGFloat(MAXFLOAT)))
+        addSubview(sourceLab)
+        sourceLab.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-UUGlobeSpace())
+            make.left.equalTo(titleLab)
+            make.size.equalTo(size)
+        }
+
+        for i in 0..<(data.images?.count ?? 0) {
+            let model = data.images?[i]
+
+            let picImageView = UIImageView()
+            picImageView.layer.cornerRadius = 8.0
+            picImageView.clipsToBounds = true
+            picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""))
+            let spaceCount = (data.images?.count ?? 0) - 1
+            let imgWidth = (width - CGFloat(spaceCount) * UUGlobeSpace()) / (data.images?.count ?? 0)
+            let imgHeight = MMHomeSecondTableViewCell.cellHeight(type: .threeImg) - labelSize.height - UUGlobeSpace()*4 - size.height
+            let leftSpace = CGFloat(i) * (UUGlobeSpace() + imgWidth)
+            addSubview(picImageView)
+            picImageView.snp.makeConstraints { (make) in
+                make.left.equalTo(titleLab).offset(leftSpace)
+                make.top.equalTo(titleLab.snp.bottom).offset(UUGlobeSpace())
+//                make.bottom.equalTo(sourceLab.snp.top).offset(-UUGlobeSpace())
+                make.size.equalTo(CGSize.init(width: imgWidth, height: imgHeight))
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

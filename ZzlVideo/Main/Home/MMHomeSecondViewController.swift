@@ -22,12 +22,14 @@ class MMHomeSecondViewController: UIViewController, JXSegmentedListContainerView
     var titleTag:MMArticleType? = nil
     var totalData = Array<MMArticle>()
     let resquest = AAApiRequest()
+    var currentPage:NSInteger = 1
     
     lazy var tableView:UITableView = {
         let table = UITableView()
         table.register(MMHomeSecondTableViewCell.self, forCellReuseIdentifier: "MMHomeSecondTableViewCell")
         table.showsVerticalScrollIndicator = false
         table.separatorInset = UIEdgeInsets.zero
+        table.separatorStyle = .none
         table.delegate = self
         table.dataSource = self
         return table
@@ -35,6 +37,40 @@ class MMHomeSecondViewController: UIViewController, JXSegmentedListContainerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpConfigView()
+        getList()
+    }
+    
+    func setUpConfigView() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.top.left.right.bottom.equalToSuperview()
+        }
+        refreshSetting()
+    }
+    
+    func refreshSetting() {
+        tableView.mj_header = UURefreshHeader({
+            self.mjHeaderAction()
+        })
+        tableView.mj_footer = UURefreshFooter({
+            self.mjFooterAction()
+        })
+    }
+    
+    func mjHeaderAction() {
+        currentPage = 1
+        totalData.removeAll()
+        getList()
+    }
+    
+    func mjFooterAction() {
+        if totalData.count > 0 {
+            currentPage += 1
+        } else {
+            currentPage = 1
+            totalData.removeAll()
+        }
         getList()
     }
     
@@ -42,16 +78,17 @@ class MMHomeSecondViewController: UIViewController, JXSegmentedListContainerView
         if titleTag == nil {
             return
         }
-        resquest.article(sender: ["size":"m", "tag":titleTag?.value ?? "", "per_page":"10", "page":"1"]) { (response) in
-            self.totalData = response
-            self.setUpConfigView()
-        }
-    }
-    
-    func setUpConfigView() {
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalToSuperview()
+        resquest.article(sender: ["size":"m", "tag":titleTag?.value ?? "", "per_page":"10", "page": "\(self.currentPage)"]) { (response) in
+            self.tableView.mj_header?.endRefreshing()
+            for model in response {
+                self.totalData.append(model)
+            }
+            if response.count < 1 {
+                self.tableView.mj_footer?.endRefreshingWithNoMoreData()
+            }else{
+                self.tableView.mj_footer?.endRefreshing()
+            }
+            self.tableView.reloadData()
         }
     }
     
@@ -66,11 +103,15 @@ class MMHomeSecondViewController: UIViewController, JXSegmentedListContainerView
             switch model.images?.count {
             case 0:
                 type = .noImg
+                break
             case 1:
                 type = .oneImg
+                break
             case 3:
                 type = .threeImg
-            default: break
+                break
+            default:
+                break
             }
         }
         return type
@@ -86,6 +127,7 @@ class MMHomeSecondViewController: UIViewController, JXSegmentedListContainerView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.separatorStyle = .singleLine
         let cell = MMHomeSecondTableViewCell.init(style: .default, reuseIdentifier: "MMHomeSecondTableViewCell")
         let model = totalData[indexPath.row]
         cell.setUpConfigView(type: getType(model: model), data: model)
@@ -98,7 +140,7 @@ class MMHomeSecondViewController: UIViewController, JXSegmentedListContainerView
         var msg = ""
         switch type {
         case .ad:
-            goOustSideSafari(urlStr: model.adUrl ?? "")
+            UUGoOustSideSafari(urlStr: model.adUrl ?? "")
             return
         case .video:
             msg = "VIDEO"

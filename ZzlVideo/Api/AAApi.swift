@@ -208,5 +208,9 @@ class AAApi {
         GET(url: "/api/v2/article", sender: sender, onHandleSuccess: onHandleSuccess,onHandleError: onHandleError)
     }
     
+    public func taskList(onHandleSuccess:@escaping blockResponse, onHandleError:@escaping blockError) {
+         GET(url: "/api/v1/task/list", sender: [:], onHandleSuccess: onHandleSuccess,onHandleError: onHandleError)
+    }
+    
     //POST
 }
