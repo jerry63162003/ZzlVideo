@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		740FC657245169A8006313D9 /* MMMissionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC656245169A8006313D9 /* MMMissionTableViewCell.swift */; };
 		740FC659245194BA006313D9 /* MMTaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC658245194BA006313D9 /* MMTaskList.swift */; };
+		740FC6632452C131006313D9 /* MMAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC6622452C131006313D9 /* MMAccountTableViewCell.swift */; };
 		74350D84244D7D680071867B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350D83244D7D680071867B /* AppDelegate.swift */; };
 		74350D8D244D7D680071867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74350D8C244D7D680071867B /* Assets.xcassets */; };
 		74350D90244D7D690071867B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74350D8E244D7D690071867B /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		00740EE01264BD81D6D5015F /* Pods_ZzlVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZzlVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		740FC656245169A8006313D9 /* MMMissionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMissionTableViewCell.swift; sourceTree = "<group>"; };
 		740FC658245194BA006313D9 /* MMTaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTaskList.swift; sourceTree = "<group>"; };
+		740FC6622452C131006313D9 /* MMAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAccountTableViewCell.swift; sourceTree = "<group>"; };
 		74350D80244D7D680071867B /* ZzlVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZzlVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74350D83244D7D680071867B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74350D8C244D7D680071867B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,8 +140,17 @@
 			isa = PBXGroup;
 			children = (
 				74350DC4244D88270071867B /* MMAccountViewController.swift */,
+				740FC6612452C117006313D9 /* View */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		740FC6612452C117006313D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				740FC6622452C131006313D9 /* MMAccountTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		74350D77244D7D680071867B = {
@@ -464,6 +475,7 @@
 				74372AD2244EDD0B001BBB89 /* MMArticleType.swift in Sources */,
 				74350DB5244D84B30071867B /* BBTabBarController.swift in Sources */,
 				74350DC8244DBA5A0071867B /* MMHomeSecondViewController.swift in Sources */,
+				740FC6632452C131006313D9 /* MMAccountTableViewCell.swift in Sources */,
 				74372ACC244EB037001BBB89 /* AAApi.swift in Sources */,
 				74350DC1244D87ED0071867B /* MMTeachViewController.swift in Sources */,
 			);

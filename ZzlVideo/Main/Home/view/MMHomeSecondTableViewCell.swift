@@ -74,7 +74,7 @@ class MMHomeSecondTableViewCell: UITableViewCell {
             picImageView = UIImageView()
             picImageView.layer.cornerRadius = 8.0
             picImageView.clipsToBounds = true
-            picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""))
+            picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""), placeholder: UIImage(named: "ic_main_no_image"), options: nil, progressBlock: nil, completionHandler: nil)
             let spaceCount = (data.images?.count ?? 0) - 1
             let imgWidth = (width - CGFloat(spaceCount) * UUGlobeSpace()) / (data.images?.count ?? 0)
             let imgHeight = MMHomeSecondTableViewCell.cellHeight(type: .ad) - labelSize.height - UUGlobeSpace()*4 - sourceHeight
@@ -162,7 +162,7 @@ class MMHomeSecondTableViewCell: UITableViewCell {
         let picImageView = UIImageView()
         picImageView.layer.cornerRadius = 8.0
         picImageView.clipsToBounds = true
-        picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""))
+        picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""), placeholder: UIImage(named: "ic_main_no_image"), options: nil, progressBlock: nil, completionHandler: nil)
         let imageHeight = MMHomeSecondTableViewCell.cellHeight(type: .oneImg) - size.height - 3 * UUGlobeSpace()
         let imageWidth = width * 0.4
         addSubview(picImageView)
@@ -218,7 +218,7 @@ class MMHomeSecondTableViewCell: UITableViewCell {
             let picImageView = UIImageView()
             picImageView.layer.cornerRadius = 8.0
             picImageView.clipsToBounds = true
-            picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""))
+            picImageView.kf.setImage(with: URL.init(string: model?.imageUrl ?? ""), placeholder: UIImage(named: "ic_main_no_image"), options: nil, progressBlock: nil, completionHandler: nil)
             let spaceCount = (data.images?.count ?? 0) - 1
             let imgWidth = (width - CGFloat(spaceCount) * UUGlobeSpace()) / (data.images?.count ?? 0)
             let imgHeight = MMHomeSecondTableViewCell.cellHeight(type: .threeImg) - labelSize.height - UUGlobeSpace()*4 - size.height
