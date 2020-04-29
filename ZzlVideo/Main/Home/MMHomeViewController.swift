@@ -89,7 +89,7 @@ class MMHomeViewController: UIViewController, JXSegmentedViewDelegate, JXSegment
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        let vc = MMHomeSecondViewController()
+        let vc = MMHomeListViewController()
         vc.titleTag = listArr[index]
         return vc
     }

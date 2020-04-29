@@ -39,7 +39,7 @@ class MMArticle: NSObject, Mappable {
     func mapping(map: Map) {
         id <- map["id"]
         title <- map["title"]
-        video <- map["text"]
+        video <- map["video"]
         videoPreview <- map["video_preview"]
         videoResolution <- map["video_resolution"]
         duration <- map["duration"]

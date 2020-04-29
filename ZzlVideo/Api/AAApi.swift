@@ -212,5 +212,13 @@ class AAApi {
          GET(url: "/api/v1/task/list", sender: [:], onHandleSuccess: onHandleSuccess,onHandleError: onHandleError)
     }
     
+    public func videoType(onHandleSuccess:@escaping blockArrayRes, onHandleError:@escaping blockError) {
+         GETArray(url: "/api/v2/video/type", sender: [:], onHandleSuccess: onHandleSuccess,onHandleError: onHandleError)
+    }
+    
+    public func video(sender:[String:String], onHandleSuccess:@escaping blockResponse, onHandleError:@escaping blockError) {
+        GET(url: "/api/v2/video", sender: sender, onHandleSuccess: onHandleSuccess,onHandleError: onHandleError)
+    }
+    
     //POST
 }

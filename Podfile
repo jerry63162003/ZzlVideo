@@ -16,5 +16,6 @@ target 'ZzlVideo' do
     pod 'IQKeyboardManagerSwift'
     pod 'DZNEmptyDataSet'
     pod 'MJRefresh'
+    pod 'SJVideoPlayer'
     pod 'SwiftEventBus', :tag => '5.0.0', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
 end

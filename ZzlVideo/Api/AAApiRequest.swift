@@ -49,4 +49,30 @@ class AAApiRequest: NSObject {
             UUStopShowLoadingHud()
         }
     }
+    
+    func videoType(callBack:@escaping (Array<MMArticleType>) ->Void) {
+        AAApi.shared.videoType(onHandleSuccess: { (response) in
+            var arr = Array<MMArticleType>()
+            for model in response {
+                arr.append(MMArticleType(JSON: model)!)
+            }
+            callBack(arr)
+        }) { (error) in
+            UUStopShowLoadingHud()
+        }
+    }
+    
+    func video(sender: Dictionary<String, String>, callBack:@escaping (Array<MMArticle>) -> Void) {
+        UUShowLoadingHud(message: "加載中")
+        AAApi.shared.video(sender: sender, onHandleSuccess: { (response) in
+            UUStopShowLoadingHud()
+            var arr = Array<MMArticle>()
+            for model in response.result as! Array<Any> {
+                arr.append(MMArticle(JSON: model as! [String:Any])!)
+            }
+            callBack(arr)
+        }) { (error) in
+            UUStopShowLoadingHud()
+        }
+    }
 }

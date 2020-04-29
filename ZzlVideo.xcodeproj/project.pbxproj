@@ -10,6 +10,8 @@
 		740FC657245169A8006313D9 /* MMMissionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC656245169A8006313D9 /* MMMissionTableViewCell.swift */; };
 		740FC659245194BA006313D9 /* MMTaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC658245194BA006313D9 /* MMTaskList.swift */; };
 		740FC6632452C131006313D9 /* MMAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC6622452C131006313D9 /* MMAccountTableViewCell.swift */; };
+		740FC667245409CA006313D9 /* MMVideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC666245409CA006313D9 /* MMVideoListViewController.swift */; };
+		740FC66E2456E9C2006313D9 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FC66D2456E9C2006313D9 /* VideoView.swift */; };
 		74350D84244D7D680071867B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350D83244D7D680071867B /* AppDelegate.swift */; };
 		74350D8D244D7D680071867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74350D8C244D7D680071867B /* Assets.xcassets */; };
 		74350D90244D7D690071867B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74350D8E244D7D690071867B /* LaunchScreen.storyboard */; };
@@ -23,12 +25,12 @@
 		74350DC1244D87ED0071867B /* MMTeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC0244D87ED0071867B /* MMTeachViewController.swift */; };
 		74350DC3244D88160071867B /* MMMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC2244D88160071867B /* MMMissionViewController.swift */; };
 		74350DC5244D88270071867B /* MMAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC4244D88270071867B /* MMAccountViewController.swift */; };
-		74350DC8244DBA5A0071867B /* MMHomeSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC7244DBA5A0071867B /* MMHomeSecondViewController.swift */; };
+		74350DC8244DBA5A0071867B /* MMHomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350DC7244DBA5A0071867B /* MMHomeListViewController.swift */; };
 		74372ACC244EB037001BBB89 /* AAApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372ACB244EB037001BBB89 /* AAApi.swift */; };
 		74372ACF244ED815001BBB89 /* AAApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372ACE244ED814001BBB89 /* AAApiRequest.swift */; };
 		74372AD2244EDD0B001BBB89 /* MMArticleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372AD1244EDD0B001BBB89 /* MMArticleType.swift */; };
 		74372AD4244EDFA4001BBB89 /* MMArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74372AD3244EDFA4001BBB89 /* MMArticle.swift */; };
-		747CFB0D245024EA009B0831 /* MMHomeSecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CFB0C245024EA009B0831 /* MMHomeSecondTableViewCell.swift */; };
+		747CFB0D245024EA009B0831 /* MMListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CFB0C245024EA009B0831 /* MMListTableViewCell.swift */; };
 		747CFB0F2450336D009B0831 /* UUHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CFB0E2450336C009B0831 /* UUHud.swift */; };
 		B738AA76660A5BA3259A281B /* Pods_ZzlVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00740EE01264BD81D6D5015F /* Pods_ZzlVideo.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,8 @@
 		740FC656245169A8006313D9 /* MMMissionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMissionTableViewCell.swift; sourceTree = "<group>"; };
 		740FC658245194BA006313D9 /* MMTaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTaskList.swift; sourceTree = "<group>"; };
 		740FC6622452C131006313D9 /* MMAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAccountTableViewCell.swift; sourceTree = "<group>"; };
+		740FC666245409CA006313D9 /* MMVideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMVideoListViewController.swift; sourceTree = "<group>"; };
+		740FC66D2456E9C2006313D9 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		74350D80244D7D680071867B /* ZzlVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZzlVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74350D83244D7D680071867B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74350D8C244D7D680071867B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,12 +78,13 @@
 		74350DC0244D87ED0071867B /* MMTeachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTeachViewController.swift; sourceTree = "<group>"; };
 		74350DC2244D88160071867B /* MMMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMissionViewController.swift; sourceTree = "<group>"; };
 		74350DC4244D88270071867B /* MMAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMAccountViewController.swift; sourceTree = "<group>"; };
-		74350DC7244DBA5A0071867B /* MMHomeSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHomeSecondViewController.swift; sourceTree = "<group>"; };
+		74350DC7244DBA5A0071867B /* MMHomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHomeListViewController.swift; sourceTree = "<group>"; };
 		74372ACB244EB037001BBB89 /* AAApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAApi.swift; sourceTree = "<group>"; };
 		74372ACE244ED814001BBB89 /* AAApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAApiRequest.swift; sourceTree = "<group>"; };
 		74372AD1244EDD0B001BBB89 /* MMArticleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMArticleType.swift; sourceTree = "<group>"; };
 		74372AD3244EDFA4001BBB89 /* MMArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMArticle.swift; sourceTree = "<group>"; };
-		747CFB0C245024EA009B0831 /* MMHomeSecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMHomeSecondTableViewCell.swift; sourceTree = "<group>"; };
+		7442055B2459AE5A00A07D68 /* Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		747CFB0C245024EA009B0831 /* MMListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMListTableViewCell.swift; sourceTree = "<group>"; };
 		747CFB0E2450336C009B0831 /* UUHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUHud.swift; sourceTree = "<group>"; };
 		B2221950CAFBD3420A3D97B4 /* Pods-ZzlVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZzlVideo.debug.xcconfig"; path = "Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo.debug.xcconfig"; sourceTree = "<group>"; };
 		BC15044E1EAC0AF45BE78B2B /* Pods-ZzlVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZzlVideo.release.xcconfig"; path = "Target Support Files/Pods-ZzlVideo/Pods-ZzlVideo.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +158,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		740FC66424540954006313D9 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				74350DBE244D87B20071867B /* MMVideoViewController.swift */,
+				740FC666245409CA006313D9 /* MMVideoListViewController.swift */,
+				740FC66C2456E9A7006313D9 /* View */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		740FC66C2456E9A7006313D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				740FC66D2456E9C2006313D9 /* VideoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		74350D77244D7D680071867B = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +210,7 @@
 				74350D8C244D7D680071867B /* Assets.xcassets */,
 				74350D8E244D7D690071867B /* LaunchScreen.storyboard */,
 				74350D91244D7D690071867B /* Info.plist */,
+				7442055B2459AE5A00A07D68 /* Swift-Bridging-Header.h */,
 			);
 			path = ZzlVideo;
 			sourceTree = "<group>";
@@ -231,10 +255,11 @@
 			isa = PBXGroup;
 			children = (
 				74350DC6244DBA270071867B /* Home */,
-				74350DBE244D87B20071867B /* MMVideoViewController.swift */,
+				740FC66424540954006313D9 /* Video */,
 				74350DC0244D87ED0071867B /* MMTeachViewController.swift */,
 				740FC65424516971006313D9 /* Mission */,
 				740FC65A245199BC006313D9 /* Account */,
+				747CFB0B2450245F009B0831 /* view */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -243,8 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				74350DBA244D867F0071867B /* MMHomeViewController.swift */,
-				74350DC7244DBA5A0071867B /* MMHomeSecondViewController.swift */,
-				747CFB0B2450245F009B0831 /* view */,
+				74350DC7244DBA5A0071867B /* MMHomeListViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -271,7 +295,7 @@
 		747CFB0B2450245F009B0831 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				747CFB0C245024EA009B0831 /* MMHomeSecondTableViewCell.swift */,
+				747CFB0C245024EA009B0831 /* MMListTableViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -461,11 +485,12 @@
 			files = (
 				74350DBD244D87440071867B /* BBNavigationController.swift in Sources */,
 				747CFB0F2450336D009B0831 /* UUHud.swift in Sources */,
+				740FC667245409CA006313D9 /* MMVideoListViewController.swift in Sources */,
 				74350DB8244D85EC0071867B /* UUNormalUtil.swift in Sources */,
 				74350DBB244D867F0071867B /* MMHomeViewController.swift in Sources */,
 				74350DC5244D88270071867B /* MMAccountViewController.swift in Sources */,
 				74350D84244D7D680071867B /* AppDelegate.swift in Sources */,
-				747CFB0D245024EA009B0831 /* MMHomeSecondTableViewCell.swift in Sources */,
+				747CFB0D245024EA009B0831 /* MMListTableViewCell.swift in Sources */,
 				740FC657245169A8006313D9 /* MMMissionTableViewCell.swift in Sources */,
 				74350DC3244D88160071867B /* MMMissionViewController.swift in Sources */,
 				74372AD4244EDFA4001BBB89 /* MMArticle.swift in Sources */,
@@ -473,8 +498,9 @@
 				74350DBF244D87B20071867B /* MMVideoViewController.swift in Sources */,
 				740FC659245194BA006313D9 /* MMTaskList.swift in Sources */,
 				74372AD2244EDD0B001BBB89 /* MMArticleType.swift in Sources */,
+				740FC66E2456E9C2006313D9 /* VideoView.swift in Sources */,
 				74350DB5244D84B30071867B /* BBTabBarController.swift in Sources */,
-				74350DC8244DBA5A0071867B /* MMHomeSecondViewController.swift in Sources */,
+				74350DC8244DBA5A0071867B /* MMHomeListViewController.swift in Sources */,
 				740FC6632452C131006313D9 /* MMAccountTableViewCell.swift in Sources */,
 				74372ACC244EB037001BBB89 /* AAApi.swift in Sources */,
 				74350DC1244D87ED0071867B /* MMTeachViewController.swift in Sources */,
@@ -644,7 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 28BKK5G36G;
 				INFOPLIST_FILE = ZzlVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -653,6 +679,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/dev10001fh/Desktop/ZzlVideo/ZzlVideo/Swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -664,7 +691,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 28BKK5G36G;
 				INFOPLIST_FILE = ZzlVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -673,6 +700,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.ZzlVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/dev10001fh/Desktop/ZzlVideo/ZzlVideo/Swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

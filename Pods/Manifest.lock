@@ -4,13 +4,75 @@ PODS:
   - IQKeyboardManagerSwift (6.5.5)
   - JXSegmentedView (1.0.6)
   - Kingfisher (4.10.1)
+  - Masonry (1.1.0)
   - MJRefresh (3.4.1)
   - ObjectMapper (3.5.2)
+  - Reachability (3.2)
   - Realm (4.4.1):
     - Realm/Headers (= 4.4.1)
   - Realm/Headers (4.4.1)
   - RealmSwift (4.4.1):
     - Realm (= 4.4.1)
+  - SJBaseVideoPlayer (3.2.7):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/AVPlayer (= 3.2.7)
+    - SJBaseVideoPlayer/Common (= 3.2.7)
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/AVPlayer (3.2.7):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/Common
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/Common (3.2.7):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/ResourceLoader
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/ResourceLoader (3.2.7):
+    - Masonry
+    - Reachability
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJUIKit/AttributesFactory (0.0.0.42):
+    - SJUIKit/AttributesFactory/Deprecated (= 0.0.0.42)
+    - SJUIKit/AttributesFactory/UIKitText (= 0.0.0.42)
+  - SJUIKit/AttributesFactory/Deprecated (0.0.0.42)
+  - SJUIKit/AttributesFactory/UIKitText (0.0.0.42)
+  - SJUIKit/ObserverHelper (0.0.0.42)
+  - SJUIKit/Queues (0.0.0.42)
+  - SJUIKit/SQLite3 (0.0.0.42):
+    - SJUIKit/SQLite3/Core (= 0.0.0.42)
+    - SJUIKit/SQLite3/Protocol (= 0.0.0.42)
+  - SJUIKit/SQLite3/Core (0.0.0.42):
+    - SJUIKit/SQLite3/Protocol
+  - SJUIKit/SQLite3/Protocol (0.0.0.42)
+  - SJVideoPlayer (3.2.4):
+    - SJBaseVideoPlayer (>= 3.2.5)
+    - SJVideoPlayer/Common (= 3.2.4)
+    - SJVideoPlayer/ControlLayers (= 3.2.4)
+    - SJVideoPlayer/ResourceLoader (= 3.2.4)
+  - SJVideoPlayer/Common (3.2.4):
+    - Masonry
+    - SJBaseVideoPlayer (>= 3.2.5)
+    - SJUIKit/AttributesFactory
+    - SJVideoPlayer/ResourceLoader
+  - SJVideoPlayer/ControlLayers (3.2.4):
+    - SJBaseVideoPlayer (>= 3.2.5)
+    - SJVideoPlayer/Common
+  - SJVideoPlayer/ResourceLoader (3.2.4):
+    - SJBaseVideoPlayer (>= 3.2.5)
   - SnapKit (4.2.0)
   - SwiftEventBus (5.0.0)
   - SwiftyJSON (5.0.0)
@@ -24,6 +86,7 @@ DEPENDENCIES:
   - MJRefresh
   - ObjectMapper
   - RealmSwift
+  - SJVideoPlayer
   - SnapKit
   - SwiftEventBus (from `https://github.com/cesarferreira/SwiftEventBus.git`, tag `5.0.0`)
   - SwiftyJSON
@@ -35,10 +98,15 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - JXSegmentedView
     - Kingfisher
+    - Masonry
     - MJRefresh
     - ObjectMapper
+    - Reachability
     - Realm
     - RealmSwift
+    - SJBaseVideoPlayer
+    - SJUIKit
+    - SJVideoPlayer
     - SnapKit
     - SwiftyJSON
 
@@ -58,14 +126,19 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   JXSegmentedView: ceb6fb3a12716408bcd5c4210b93d947d079de25
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
+  SJBaseVideoPlayer: f08787efb5154bf08f9439441b36bd86efcc4ec3
+  SJUIKit: 1356488a2488a9aafeddaf6a098006277c0eb9b8
+  SJVideoPlayer: acee9fab2b384fc87ed7636c05977d8dd3cdb4ee
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftEventBus: b30f617a6aca5a9336464b4d3f5931034762f2d5
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: e78d8e8a885e51561af429f20eb2ee89e8036604
+PODFILE CHECKSUM: 288c3f7e230b5d653c6dd01817d1926a687041cb
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
