@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class BBTabBarController: UITabBarController, UITabBarControllerDelegate {
-    
+    let kAppdelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     let navHome =  BBNavigationController.init(rootViewController: MMHomeViewController.init())
     let navVideo = BBNavigationController.init(rootViewController: MMVideoViewController.init())
     let navTeach = BBNavigationController.init(rootViewController: MMTeachViewController.init())
@@ -50,23 +50,13 @@ class BBTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        //        if viewController.isEqual(navAccount) {
-        //            if NNAccount.user.isLogin == false {
-        //                toLoginViewController()
-        //                return false
-        //            }
-        //        } else if viewController.isEqual(navPromotion) {
-        //            if NNAccount.user.isLogin == false {
-        //                toLoginViewController()
-        //                return false
-        //            } else if UserInfoData.userInfo.userType == 3 {
-        //                NNShowToast(message: "亲～您不是代理喔！！", duration: 1.0, position: NNToastPositionDefault)
-        //                return false
-        //            }
-        //        } else if viewController.isEqual(navMore) {
-        //            showMoreView()
-        //            return false
-        //        }
+        if viewController.isEqual(navVideo) {
+            let rotation:UIInterfaceOrientationMask = [.portrait, .landscapeRight, .landscapeLeft]
+            kAppdelegate?.blockRotation = rotation
+        } else {
+            let rotation:UIInterfaceOrientationMask = [.portrait]
+            kAppdelegate?.blockRotation = rotation
+        }
         return true
     }
 }

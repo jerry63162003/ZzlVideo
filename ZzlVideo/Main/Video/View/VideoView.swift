@@ -9,15 +9,80 @@
 
 import UIKit
 import AVFoundation
+import SJVideoPlayer
+
+class SjVideoView: UIView {
+    
+    let videoCoverView = VideoCoverView()
+    
+    let sjPlayer = SJVideoPlayer()
+    var isPlaying:Bool = false
+    typealias videoPlayBlock = (_ isPlaying: Bool) -> Void
+    var videoPlayClick : videoPlayBlock?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpConfigView()
+    }
+    
+    func setUpConfigView() {
+        addSubview(videoCoverView)
+        videoCoverView.snp.makeConstraints { (make) in
+            make.top.left.bottom.right.equalToSuperview()
+        }
+        videoCoverView.playBtn.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
+    }
+    
+    func setUpVideoView(data: MMArticle, tableView: UITableView, indexPath: IndexPath) {
+        /*
+         * title 標題
+         * video_preview 預置圖片
+         * video 影片url
+         * comments_count 播放次數
+         * duration 影片長度
+         * source_name 來源名
+         * created_at_human 時間
+         */
+        sjPlayer.presentView.placeholderImageView.kf.setImage(with: URL.init(string: data.videoPreview ?? ""))
+        
+        //cell中的播放器暂停后,滑动不让cell里的播放器自动播放
+        sjPlayer.resumePlaybackWhenScrollAppeared = false
+        //禁止自動旋轉
+        sjPlayer.rotationManager.isDisabledAutorotation = true
+        //播放器准备好显示时, 是否隐藏占位图
+//        sjPlayer.hiddenPlaceholderImageViewWhenPlayerIsReadyForDisplay = false
+        
+        if let url = URL.init(string: data.video ?? "") {
+            let asset = SJVideoPlayerURLAsset.init(url: url, playModel: SJPlayModel.uiTableViewCellPlayModel(withPlayerSuperviewTag: tag, at: indexPath, tableView: tableView))
+            asset?.title = data.title ?? ""
+            sjPlayer.urlAsset = asset
+        }
+        
+        sjPlayer.view.frame = videoCoverView.bounds
+        addSubview(sjPlayer.view)
+        
+    }
+    
+    @objc func playVideo() {
+        isPlaying = !isPlaying
+        videoCoverView.isHidden = isPlaying ? true:false
+        if videoPlayClick != nil {
+            videoPlayClick!(isPlaying)
+        }
+    }
+
+    func setVideoPlayClickBlock(block:@escaping videoPlayBlock) -> Void {
+        videoPlayClick = block
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
 class VideoView: UIView {
     //view
-    let videoView = UIView()
-    let bgImageView = UIImageView()
-    var titleLab = UILabel()
-    let playBtn = UIButton()
-    var playTimeLab = UILabel()
-    var durationLab = UILabel()
+    let videoCoverView = VideoCoverView()
     var isPlaying:Bool = false
     //tool
     let toolView = UIView()
@@ -35,65 +100,17 @@ class VideoView: UIView {
         super.init(frame: frame)
     }
     
-    func setUpConfigView(data: MMArticle) {
-        /*
-         * title 標題
-         * video_preview 預置圖片
-         * video 影片url
-         * comments_count 播放次數
-         * duration 影片長度
-         * source_name 來源名
-         * created_at_human 時間
-         */
+    func setUpConfigView() {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(playVideo))
         tap.numberOfTapsRequired = 1
-        videoView.isUserInteractionEnabled = true
-        videoView.addGestureRecognizer(tap)
-        addSubview(videoView)
-        videoView.snp.makeConstraints { (make) in
-            make.top.left.right.centerX.equalToSuperview()
-            make.size.equalTo(CGSize.init(width: UUWidth(), height: UUWidth() * 9 / 16))
-        }
-        
-        bgImageView.kf.setImage(with: URL.init(string: data.videoPreview ?? ""))
-        videoView.addSubview(bgImageView)
-        bgImageView.snp.makeConstraints { (make) in
+        videoCoverView.isUserInteractionEnabled = true
+        videoCoverView.addGestureRecognizer(tap)
+        addSubview(videoCoverView)
+        videoCoverView.snp.makeConstraints { (make) in
             make.top.left.bottom.right.equalToSuperview()
         }
         
-        titleLab = labelInit(" \(data.title ?? "")")
-        titleLab.textAlignment = .left
-        titleLab.backgroundColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.30)
-        titleLab.adjustsFontSizeToFitWidth = true
-        titleLab.snp.makeConstraints { (make) in
-            make.top.left.right.equalToSuperview()
-            make.height.equalTo(UUCalculateSize(40))
-            make.width.equalTo(UUWidth())
-        }
-        
-        playBtn.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
-        playBtn.setImage(UIImage(named: "ic_video_play"), for: .normal)
-        addSubview(playBtn)
-        playBtn.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-        }
-        
-        playTimeLab = labelInit("\(data.commentsCount ?? 0)次播放")
-        playTimeLab.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(UUGlobeSpace())
-            make.bottom.equalToSuperview().offset(-UUGlobeSpace())
-        }
-        
-        durationLab = labelInit(data.duration ?? "")
-        let durationLabSize = durationLab.sizeThatFits(CGSize.init(width: CGFloat(MAXFLOAT), height: CGFloat(MAXFLOAT)))
-        durationLab.layer.cornerRadius = (durationLabSize.height + UUGlobeSpace()) / 2
-        durationLab.backgroundColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.50)
-        durationLab.clipsToBounds = true
-        durationLab.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-UUGlobeSpace())
-            make.centerY.equalTo(playTimeLab)
-            make.size.equalTo(CGSize.init(width: durationLabSize.width + 2*UUGlobeSpace(), height: durationLabSize.height + UUGlobeSpace()))
-        }
+        videoCoverView.playBtn.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
     }
     
     func setUpToolView(data: MMArticle) {
@@ -101,7 +118,7 @@ class VideoView: UIView {
         toolView.backgroundColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.30)
         addSubview(toolView)
         toolView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(videoView)
+            make.left.right.bottom.equalTo(videoCoverView)
             make.height.equalTo(toolViewHeight)
             make.width.equalTo(UUWidth())
         }
@@ -148,10 +165,10 @@ class VideoView: UIView {
     @objc func playVideo() {
         if videoPlayClick != nil {
             isPlaying = !isPlaying
-            bgImageView.isHidden = true
-            playTimeLab.isHidden = true
-            durationLab.isHidden = true
-            videoPlayClick!(self.tag, videoView, isPlaying)
+            videoCoverView.bgImageView.isHidden = true
+            videoCoverView.playTimeLab.isHidden = true
+            videoCoverView.durationLab.isHidden = true
+            videoPlayClick!(self.tag, videoCoverView, isPlaying)
         }
     }
     
@@ -160,12 +177,12 @@ class VideoView: UIView {
     }
     
     func setTimer() {
-        playBtn.setImage(UIImage(named:isPlaying ? "ic_video_pause": "ic_video_play"), for: .normal)
-        playBtn.isHidden = false
-        titleLab.isHidden = false
+        videoCoverView.playBtn.setImage(UIImage(named:isPlaying ? "ic_video_pause": "ic_video_play"), for: .normal)
+        videoCoverView.playBtn.isHidden = false
+        videoCoverView.titleLab.isHidden = false
         toolView.isHidden = false
-        playTimeLab.isHidden = true
-        durationLab.isHidden = true
+        videoCoverView.playTimeLab.isHidden = true
+        videoCoverView.durationLab.isHidden = true
         timeInterval = 3
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timeAction(sender:)), userInfo: nil, repeats: true)
     }
@@ -177,24 +194,108 @@ class VideoView: UIView {
     
     @objc func timeAction(sender:Timer){
         if isPlaying {
-            playBtn.isHidden = true
-            titleLab.isHidden = true
+            videoCoverView.playBtn.isHidden = true
+            videoCoverView.titleLab.isHidden = true
         } else {
-            playBtn.isHidden = false
-            playTimeLab.isHidden = false
-            durationLab.isHidden = false
+            videoCoverView.playBtn.isHidden = false
+            videoCoverView.playTimeLab.isHidden = false
+            videoCoverView.durationLab.isHidden = false
         }
         hideToolView()
     }
     
     func pauseShowView() {
         isPlaying = false
-        bgImageView.isHidden = false
-        playBtn.isHidden = false
-        titleLab.isHidden = false
-        playTimeLab.isHidden = false
-        durationLab.isHidden = false
-        playBtn.setImage(UIImage(named:"ic_video_play"), for: .normal)
+        videoCoverView.bgImageView.isHidden = false
+        videoCoverView.playBtn.isHidden = false
+        videoCoverView.titleLab.isHidden = false
+        videoCoverView.playTimeLab.isHidden = false
+        videoCoverView.durationLab.isHidden = false
+        videoCoverView.playBtn.setImage(UIImage(named:"ic_video_play"), for: .normal)
+    }
+    
+    func labelInit(_ text: String) -> UILabel {
+        let lab = UILabel()
+        lab.text = text
+        lab.textColor = .white
+        lab.font = UUNormalFontSize(14)
+        lab.textAlignment = .center
+        addSubview(lab)
+        return lab
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class VideoCoverView: UIView {
+    let videoView = UIView()
+    let bgImageView = UIImageView()
+    var titleLab = UILabel()
+    let playBtn = UIButton()
+    var playTimeLab = UILabel()
+    var durationLab = UILabel()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    func setUpConfigView(data: MMArticle) {
+        /*
+         * title 標題
+         * video_preview 預置圖片
+         * video 影片url
+         * comments_count 播放次數
+         * duration 影片長度
+         * source_name 來源名
+         * created_at_human 時間
+         */
+        addSubview(videoView)
+        videoView.snp.makeConstraints { (make) in
+            make.top.left.right.centerX.equalToSuperview()
+            make.size.equalTo(CGSize.init(width: UUWidth(), height: UUWidth() * 9 / 16))
+        }
+        
+        bgImageView.kf.setImage(with: URL.init(string: data.videoPreview ?? ""))
+        videoView.addSubview(bgImageView)
+        bgImageView.snp.makeConstraints { (make) in
+            make.top.left.bottom.right.equalToSuperview()
+        }
+        
+        titleLab = labelInit(" \(data.title ?? "")")
+        titleLab.textAlignment = .left
+        titleLab.backgroundColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.30)
+        titleLab.adjustsFontSizeToFitWidth = true
+        titleLab.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(UUCalculateSize(40))
+            make.width.equalTo(UUWidth())
+        }
+        
+//        playBtn.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
+        playBtn.setImage(UIImage(named: "ic_video_play"), for: .normal)
+        addSubview(playBtn)
+        playBtn.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        
+        playTimeLab = labelInit("\(data.commentsCount ?? 0)次播放")
+        playTimeLab.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(UUGlobeSpace())
+            make.bottom.equalToSuperview().offset(-UUGlobeSpace())
+        }
+        
+        durationLab = labelInit(data.duration ?? "")
+        let durationLabSize = durationLab.sizeThatFits(CGSize.init(width: CGFloat(MAXFLOAT), height: CGFloat(MAXFLOAT)))
+        durationLab.layer.cornerRadius = (durationLabSize.height + UUGlobeSpace()) / 2
+        durationLab.backgroundColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.50)
+        durationLab.clipsToBounds = true
+        durationLab.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-UUGlobeSpace())
+            make.centerY.equalTo(playTimeLab)
+            make.size.equalTo(CGSize.init(width: durationLabSize.width + 2*UUGlobeSpace(), height: durationLabSize.height + UUGlobeSpace()))
+        }
     }
     
     func labelInit(_ text: String) -> UILabel {

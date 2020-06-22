@@ -25,6 +25,7 @@ class MMListTableViewCell: UITableViewCell {
     let sourceLab = UILabel()
     let timeLab = UILabel()
     let videoView = VideoView()
+    let sjVideoView = SjVideoView()
     let moreImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -115,9 +116,15 @@ class MMListTableViewCell: UITableViewCell {
     }
     
     func setUpVideoView(_ data: MMArticle) {
-        videoView.setUpConfigView(data: data)
-        addSubview(videoView)
-        videoView.snp.makeConstraints { (make) in
+//        videoView.setUpConfigView(data: data)
+//        addSubview(videoView)
+//        videoView.snp.makeConstraints { (make) in
+//            make.top.left.right.centerX.equalToSuperview()
+//            make.size.equalTo(CGSize.init(width: UUWidth(), height: UUWidth() * 9 / 16))
+//        }
+        
+        addSubview(sjVideoView)
+        sjVideoView.snp.makeConstraints { (make) in
             make.top.left.right.centerX.equalToSuperview()
             make.size.equalTo(CGSize.init(width: UUWidth(), height: UUWidth() * 9 / 16))
         }
@@ -129,7 +136,7 @@ class MMListTableViewCell: UITableViewCell {
         addSubview(sourceLab)
         sourceLab.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-UUGlobeSpace()/2)
-            make.top.equalTo(videoView.snp.bottom).offset(UUGlobeSpace()/2)
+            make.top.equalTo(sjVideoView.snp.bottom).offset(UUGlobeSpace()/2)
             make.left.equalToSuperview().offset(UUGlobeSpace())
         }
         

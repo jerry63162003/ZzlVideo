@@ -127,79 +127,18 @@ class MMVideoListViewController: UIViewController, JXSegmentedListContainerViewL
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorStyle = .singleLine
         let cell = MMListTableViewCell.init(style: .default, reuseIdentifier: "MMListTableViewCell")
-        cellArr.append(cell)
         let model = totalData[indexPath.row]
         cell.setUpConfigView(type: getType(model: model), data: model)
-        cell.videoView.tag = indexPath.row
-        cell.videoView.setVideoPlayClickBlock { (tag, view, isPlaying) in
-            if self.sjPlayer == nil {
-                self.allocPlayer(tag: tag, view: view, cell: cell)
-            } else if self.selectedIndex != tag  {
-                self.sjPlayer!.pause()
-                self.cellArr[self.selectedIndex].videoView.pauseShowView()
-                cell.videoView.playBtn.setImage(UIImage(named: "ic_video_play"), for: .normal)
-                self.allocPlayer(tag: tag, view: view, cell: cell)
-            } else {
-                self.playVideo(isPlaying: isPlaying, cell: cell)
-            }
-            cell.videoView.setTimer()
+        
+        cell.sjVideoView.videoCoverView.setUpConfigView(data: model)
+        cell.sjVideoView.tag = indexPath.row + 1
+        
+        cell.sjVideoView.setVideoPlayClickBlock { (isPlaying) in
+            cell.sjVideoView.setUpVideoView(data: model, tableView: self.tableView, indexPath: indexPath)
         }
+        
         return cell
     }
-    
-    func playVideo(isPlaying: Bool, cell: MMListTableViewCell) {
-        if isPlaying {
-            sjPlayer?.play()
-            //            player!.play()
-        } else {
-            sjPlayer?.pause()
-            //            player!.pause()
-        }
-    }
-    
-    func allocPlayer(tag: NSInteger, view: UIView, cell: MMListTableViewCell) {
-        selectedIndex = tag
-        cell.videoView.setUpToolView(data: totalData[tag])
-        let videoUrlStr: String = totalData[tag].video ?? ""
-        if let url = URL(string: videoUrlStr) {
-            sjPlayer = SJVideoPlayer()
-            sjPlayer?.view.frame = view.bounds
-            view.addSubview(sjPlayer!.view)
-            //                let asset = SJVideoPlayerURLAsset.init(url: url)
-            //                sjPlayer?.urlAsset = asset
-            sjPlayer?.play(with: url)
-            //            let playerItem = AVPlayerItem.init(url: url)
-            //            player = AVPlayer(playerItem: playerItem)
-            //            let playerLayer = AVPlayerLayer(player: player)
-            //            playerLayer.frame = view.bounds
-            //            view.layer.addSublayer(playerLayer)
-            //            player!.play()
-        }
-    }
-    
-    //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    //        if selectedIndex == -1 {
-    //            return
-    //        }
-    //        let model = totalData[selectedIndex]
-    //        let cellHeight = MMListTableViewCell.cellHeight(type: getType(model: model))
-    //        let point = scrollView.contentOffset.y
-    //        if point/cellHeight > CGFloat(selectedIndex+1) {
-    //            playVideo(isPlaying: false, cell: cellArr[selectedIndex])
-    //        }
-    //    }
-    //
-    //    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-    //        if selectedIndex == -1 {
-    //            return
-    //        }
-    //        let model = totalData[selectedIndex]
-    //        let cellHeight = MMListTableViewCell.cellHeight(type: getType(model: model))
-    //        let point = scrollView.contentOffset.y
-    //        if point/cellHeight > CGFloat(selectedIndex+1) {
-    //            playVideo(isPlaying: false, cell: cellArr[selectedIndex])
-    //        }
-    //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
